@@ -30,21 +30,21 @@ pub struct Config {
 }
 
 #[derive(Debug)]
-struct RequestState {
+pub struct RequestState {
     retry: u16,
     endpoint_ip: Ipv4Address,
     server_identifier: Ipv4Address,
 }
 
 #[derive(Debug)]
-struct RenewState {
+pub struct RenewState {
     retry: u16,
     endpoint_ip: Ipv4Address,
     server_identifier: Ipv4Address,
 }
 
 #[derive(Debug)]
-enum ClientState {
+pub enum ClientState {
     /// Discovering the DHCP server
     Discovering,
     /// Requesting an address
@@ -54,7 +54,7 @@ enum ClientState {
 }
 
 pub struct Client {
-    state: ClientState,
+    pub state: ClientState,
     raw_handle: SocketHandle,
     /// When to send next request
     next_egress: Instant,
